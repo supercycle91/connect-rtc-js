@@ -8,8 +8,8 @@ module.exports = function (grunt) {
                 preserveComments: 'some'
             },
             build: {
-                src: './out/connect-rtc.js',
-                dest: './out/connect-rtc.min.js'
+                src: './out/connect-rtc-<%= pkg.version %>.js',
+                dest: './out/connect-rtc.min-<%= pkg.version %>.js'
             }
         },
         browserify: {
@@ -17,7 +17,7 @@ module.exports = function (grunt) {
                 src: [
                     './src/js/connect-rtc.js'
                 ],
-                dest: './out/connect-rtc-debug.js',
+                dest: './out/connect-rtc-debug-<%= pkg.version %>.js',
                 options: {
                     browserifyOptions: {
                         debug: true
@@ -29,7 +29,7 @@ module.exports = function (grunt) {
                 src: [
                     './src/js/connect-rtc.js'
                 ],
-                dest: './out/connect-rtc.js',
+                dest: './out/connect-rtc-<%= pkg.version %>.js',
                 options: {
                     transform: [["babelify", { "presets": ["env"] }]],
                 }
